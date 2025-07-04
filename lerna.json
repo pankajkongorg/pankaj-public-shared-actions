@@ -3,12 +3,7 @@
   "version": "independent",
   "npmClient": "pnpm",
   "packages": [
-    "code-build-actions/**",
-    "code-check-actions/**",
-    "login-aws-cloud",
-    "pr-previews/**",
-    "security-actions/**",
-    "slack-actions/**"
+    "security-actions/**"
   ],
   "ignoreChanges": ["**/*.md"],
   "command": {
