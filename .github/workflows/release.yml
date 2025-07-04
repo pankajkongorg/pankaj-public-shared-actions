@@ -94,114 +94,114 @@ jobs:
         shell: bash
         run: pnpm version:dry-run
 
-  slack_notification:
-    name: Slack Notification
-    runs-on: ubuntu-latest
-    needs: publish
-    if: ${{ github.ref == 'refs/heads/main' }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+  # slack_notification:
+  #   name: Slack Notification
+  #   runs-on: ubuntu-latest
+  #   needs: publish
+  #   if: ${{ github.ref == 'refs/heads/main' }}
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
-      # Success Notification
-      - name: Send Success Notification
-        if: ${{ needs.publish.result == 'success' }}
-        uses: ./slack-actions/workflow-notification
-        with:
-          slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL_NOTIFY_PUBLIC_SHARED_ACTIONS }}
-          status: success
-          payload: |
-            {
-              "text": "Completely custom Slack message for release",
-              "blocks": [
-                {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "emoji": true,
-                    "text": "Release Workflow Success"
-                  }
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Repository:*\n<${{ github.server_url }}/${{ github.repository }}|${{ github.repository }}>"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Branch:*\n<${{ github.server_url }}/${{ github.repository }}/tree/${{ github.ref_name }}|${{ github.ref_name }}>"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Workflow Run:*\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_number }}>"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*TriggeredByCommit:*\n<${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Triggered By:*\n${{ github.actor }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Event Name:*\n${{ github.event_name }}"
-                    }
-                  ]
-                }
-              ]
-            }
+  #     # Success Notification
+  #     - name: Send Success Notification
+  #       if: ${{ needs.publish.result == 'success' }}
+  #       uses: ./slack-actions/workflow-notification
+  #       with:
+  #         slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL_NOTIFY_PUBLIC_SHARED_ACTIONS }}
+  #         status: success
+  #         payload: |
+  #           {
+  #             "text": "Completely custom Slack message for release",
+  #             "blocks": [
+  #               {
+  #                 "type": "header",
+  #                 "text": {
+  #                   "type": "plain_text",
+  #                   "emoji": true,
+  #                   "text": "Release Workflow Success"
+  #                 }
+  #               },
+  #               {
+  #                 "type": "section",
+  #                 "fields": [
+  #                   {
+  #                     "type": "mrkdwn",
+  #                     "text": "*Repository:*\n<${{ github.server_url }}/${{ github.repository }}|${{ github.repository }}>"
+  #                   },
+  #                   {
+  #                     "type": "mrkdwn",
+  #                     "text": "*Branch:*\n<${{ github.server_url }}/${{ github.repository }}/tree/${{ github.ref_name }}|${{ github.ref_name }}>"
+  #                   },
+  #                   {
+  #                     "type": "mrkdwn",
+  #                     "text": "*Workflow Run:*\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_number }}>"
+  #                   },
+  #                   {
+  #                     "type": "mrkdwn",
+  #                     "text": "*TriggeredByCommit:*\n<${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>"
+  #                   },
+  #                   {
+  #                     "type": "mrkdwn",
+  #                     "text": "*Triggered By:*\n${{ github.actor }}"
+  #                   },
+  #                   {
+  #                     "type": "mrkdwn",
+  #                     "text": "*Event Name:*\n${{ github.event_name }}"
+  #                   }
+  #                 ]
+  #               }
+  #             ]
+  #           }
 
 
-      # Failure Notification
-      - name: Send Failure Notification
-        if: ${{ needs.publish.result == 'failure' }}
-        uses: ./slack-actions/workflow-notification
-        with:
-          slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL_ALERT_PUBLIC_SHARED_ACTIONS }}
-          status: failure
-          payload: |
-            {
-              "text": "Completely custom Slack message for release",
-              "blocks": [
-                {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "emoji": true,
-                    "text": "Release Workflow Failure"
-                  }
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Repository:*\n<${{ github.server_url }}/${{ github.repository }}|${{ github.repository }}>"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Branch:*\n<${{ github.server_url }}/${{ github.repository }}/tree/${{ github.ref_name }}|${{ github.ref_name }}>"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Workflow Run:*\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_number }}>"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*TriggeredByCommit:*\n<${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Triggered By:*\n${{ github.actor }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Event Name:*\n${{ github.event_name }}"
-                    }
-                  ]
-                }
-              ]
-            }
+  #     # Failure Notification
+  #     - name: Send Failure Notification
+  #       if: ${{ needs.publish.result == 'failure' }}
+  #       uses: ./slack-actions/workflow-notification
+  #       with:
+  #         slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL_ALERT_PUBLIC_SHARED_ACTIONS }}
+  #         status: failure
+  #         payload: |
+  #           {
+  #             "text": "Completely custom Slack message for release",
+  #             "blocks": [
+  #               {
+  #                 "type": "header",
+  #                 "text": {
+  #                   "type": "plain_text",
+  #                   "emoji": true,
+  #                   "text": "Release Workflow Failure"
+  #                 }
+  #               },
+  #               {
+  #                 "type": "section",
+  #                 "fields": [
+  #                   {
+  #                     "type": "mrkdwn",
+  #                     "text": "*Repository:*\n<${{ github.server_url }}/${{ github.repository }}|${{ github.repository }}>"
+  #                   },
+  #                   {
+  #                     "type": "mrkdwn",
+  #                     "text": "*Branch:*\n<${{ github.server_url }}/${{ github.repository }}/tree/${{ github.ref_name }}|${{ github.ref_name }}>"
+  #                   },
+  #                   {
+  #                     "type": "mrkdwn",
+  #                     "text": "*Workflow Run:*\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_number }}>"
+  #                   },
+  #                   {
+  #                     "type": "mrkdwn",
+  #                     "text": "*TriggeredByCommit:*\n<${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>"
+  #                   },
+  #                   {
+  #                     "type": "mrkdwn",
+  #                     "text": "*Triggered By:*\n${{ github.actor }}"
+  #                   },
+  #                   {
+  #                     "type": "mrkdwn",
+  #                     "text": "*Event Name:*\n${{ github.event_name }}"
+  #                   }
+  #                 ]
+  #               }
+  #             ]
+  #           }
