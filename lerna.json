@@ -12,7 +12,7 @@
       "allowBranch": ["main"],
       "conventionalCommits": true,
       "changelogPreset": "metahub",
-      "gitTagCommand": "bash -c 'orig=%s; git tag \"$orig\" -m \"$orig\"; alias=${orig#@}; git tag \"$alias\" -m \"$alias\"'"
+      "gitTagCommand": "bash -c 'orig=%s; git tag \"$orig\" -m \"$orig\"; alias=\\${orig#@}; git tag \"$alias\" -m \"$alias\"'"
     }
   }
 }
