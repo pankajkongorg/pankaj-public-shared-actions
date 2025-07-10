@@ -5,10 +5,27 @@ pre-commit:
   # Run `zizmor` only on matching files
   commands:
     trufflehog-local:
+      skip:
+        - run: test "$CI" = "true"  
       run: |
         trufflehog git file://. \
           --since-commit HEAD \
           --results=verified --fail
+    
+    trufflehog-ci:
+      only:
+        - run: test "$CI" = "true" 
+      run: |
+        if [ -n "$GITHUB_BASE_SHA" ] && [ -n "$GITHUB_HEAD_SHA" ]; then
+          echo "Scanning from $GITHUB_BASE_SHA to $GITHUB_HEAD_SHA"
+          trufflehog git file://. \
+            --since-commit $GITHUB_BASE_SHA \
+            --branch $GITHUB_HEAD_SHA \
+            --results=verified \
+            --fail
+        else
+          echo "::warning::Missing GITHUB_BASE_SHA or GITHUB_HEAD_SHA. Skipping scan."
+        fi
 
 commit-msg:
   commands:
