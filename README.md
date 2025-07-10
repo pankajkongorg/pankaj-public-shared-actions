@@ -1,4 +1,4 @@
-# Testing Secret Scanning on this repo for a use case, don't get excited if your scanner finds a AWS Keys :)
+# Testing Secret Scanning on this repo for a use case, don't get excited if your scanner finds AWS Keys :)
 # public-shared-actions
 Shared actions available to both public and private repositories
 
