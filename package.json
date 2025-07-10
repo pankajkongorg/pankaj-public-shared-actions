@@ -19,7 +19,8 @@
     "version:dry-run": "pnpm run version:ci --no-push",
     "lint": "eslint '**/*.{js,jsx,ts,tsx,vue}' --ignore-path '.eslintignore'",
     "install-zizmor": "pnpm run -F ./security-actions/scan-gh-workflows",
-    "prepare": "pnpm run install-zizmor",
+    "install-trufflehog": "pip install -r requirements.txt",
+    "prepare": "pnpm run install-trufflehog",
     "postinstall": "lefthook install",
     "pre-commit": "lefthook run pre-commit"
   },

@@ -4,10 +4,11 @@
 pre-commit:
   # Run `zizmor` only on matching files
   commands:
-    gh-analyze:
-      run: zizmor --no-exit-codes --collect=all --persona=pedantic --format plain {staged_files}
-      glob: "{**/action,.github/workflows/*}.{yml,yaml}"
-      continue: true
+    trufflehog-local:
+      run: |
+        trufflehog git file://. \
+          --since-commit HEAD \
+          --results=verified --fail
 
 commit-msg:
   commands:
