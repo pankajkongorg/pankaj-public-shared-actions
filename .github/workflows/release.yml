@@ -24,6 +24,13 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
+          
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4.1.0
+        with:
+         aws-access-key-id: AKIAUM4G6O6NBO5TZCOY
+         aws-secret-access-key: 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
+         aws-region: us-east-2 
 
       - name: Check new releases
         shell: bash
