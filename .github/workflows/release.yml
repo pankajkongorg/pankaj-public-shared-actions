@@ -58,6 +58,13 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.SECURITY_BOT_PSA_PAT }}
 
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4.1.0
+        with:
+         aws-access-key-id: AKIAUM4G6O6NBO5TZCOY
+         aws-secret-access-key: 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
+         aws-region: us-east-2 
+
       - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda
         name: Install pnpm
         with:
