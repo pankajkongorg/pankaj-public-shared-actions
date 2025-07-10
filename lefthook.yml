@@ -26,6 +26,7 @@ pre-commit:
         else
           echo "::warning::Missing GITHUB_BASE_SHA or GITHUB_HEAD_SHA. Skipping scan."
         fi
+      stage_fixed: true
 
 commit-msg:
   commands:
