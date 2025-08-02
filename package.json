@@ -15,7 +15,7 @@
     "commit": "cz",
     "lerna": "lerna",
     "version": "pnpm i --no-frozen-lockfile && git add .",
-    "version:ci": "lerna version --tag-version-separator '-' --yes --create-release github",
+    "version:ci": "lerna version --yes --create-release github",
     "version:dry-run": "pnpm run version:ci --no-push",
     "lint": "eslint '**/*.{js,jsx,ts,tsx,vue}' --ignore-path '.eslintignore'",
     "install-zizmor": "pnpm run -F ./security-actions/scan-gh-workflows",
