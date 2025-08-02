@@ -1,4 +1,4 @@
-name: Rust SCA
+name: Rust SCA scan
 description: Rust SCA using grype
 author: 'Kong'
 inputs:
