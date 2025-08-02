@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/Kong/public-shared-actions/compare/security-actions-semgrep@6.1.0...security-actions-semgrep@7.0.0) (2025-08-02)
+
+
+### ✨ Features
+
+* **security-actions-semgrep:** update action name ([fc79076](https://github.com/Kong/public-shared-actions/commit/fc79076ac041a98289546911eec75a5781ad4f00))
+
+
+### Breaking changes
+
+* **security-actions-semgrep:** `extends` key in config file is now used for extending other config files
+
+
+
+
+
 # [6.1.0](https://github.com/Kong/public-shared-actions/compare/security-actions-semgrep@6.0.0...security-actions-semgrep@6.1.0) (2025-08-02)
 
 
