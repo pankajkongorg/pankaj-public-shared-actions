@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/Kong/public-shared-actions/compare/security-actions-semgrep@6.0.0...security-actions-semgrep@6.1.0) (2025-08-02)
+
+
+### ✨ Features
+
+* **security-actions-semgrep:** updte name ([878f52a](https://github.com/Kong/public-shared-actions/commit/878f52a98036b1ddd327665e52bfb824e40a773a))
+
+
+
+
+
 # 6.0.0 (2025-08-02)
 
 
