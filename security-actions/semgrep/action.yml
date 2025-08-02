@@ -1,4 +1,4 @@
-name:  Semgrep SAST SCAN re
+name:  Semgrep SAST
 description: Semgrep SAST
 author: 'Kong'
 inputs:
