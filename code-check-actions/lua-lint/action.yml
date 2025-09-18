@@ -24,7 +24,7 @@ runs:
   steps:
 
     - name: Run Luacheck for static analysis
-      uses: lunarmodules/luacheck@ababb6d403d634eb74d2c541035e9ede966e710d
+      uses: lunarmodules/luacheck@6fc4af915c70a9326278d3df15875d28331b215d
       continue-on-error: true
       with:
         args: "${{ inputs.additional_args }} --codes --ranges --formatter JUnit -q ${{ inputs.files }} > luacheck_${{github.sha}}.xml"
