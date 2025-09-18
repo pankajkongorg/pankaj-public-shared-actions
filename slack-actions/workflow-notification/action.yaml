@@ -1,4 +1,4 @@
-name: Post Slack workflow conclusion notifications
+name: Post Slack workflow conclusion notifications actions
 description: Post a Slack message with the workflow conclusion via Slack incoming webhook.
 inputs:
   # REQUIRED INPUTS
