@@ -24,7 +24,7 @@ runs:
 
     - name: Running Secret Scan using Trufflehog 
       id: trufflehog 
-      uses: trufflesecurity/trufflehog@3fbb9e94740526c7ed73d0c7151ebdf57d8e1618 # v3.89.0
+      uses: trufflesecurity/trufflehog@18c7b1fc33e6c16b27ea66ff27cc7e642fb7cd0a # v3.90.6
       continue-on-error: true 
       with:  
         extra_args: --log-level=${{ env.TRUFFLEHOG_LOG_LEVEL }} --results=verified,unknown
