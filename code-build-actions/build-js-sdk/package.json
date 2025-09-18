@@ -1,6 +1,6 @@
 {
   "name": "build-js-sdk",
-  "version": "5.0.1",
+  "version": "6.0.0",
   "description": "This action builds a JavaScript SDK and updates an existing PR with the generated files",
   "main": "index.js",
   "repository": {
