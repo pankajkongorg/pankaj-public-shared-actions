@@ -37,8 +37,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.33.0",
     "lefthook": "^1.10.1",
-    "lerna": "^7.1.4",
-    "@actbase/native": "0.1.32"
+    "lerna": "^7.1.4"
   },
   "config": {
     "commitizen": {
