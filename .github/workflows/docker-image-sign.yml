@@ -32,7 +32,7 @@ jobs:
     - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
     - name: Install regctl
-      uses: regclient/actions/regctl-installer@ce5fd131e371ffcdd7508b478cb223b3511a9183
+      uses: regclient/actions/regctl-installer@f68c06246bba172f86f7a54aec805411b2fac09a
 
     # Auth login to dockerhub
     - name: Login to Docker Hub
