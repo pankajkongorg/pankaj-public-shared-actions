@@ -58,7 +58,7 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.SECURITY_BOT_PSA_PAT }}
 
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda
+      - uses: pnpm/action-setup@3a0024f0665291c8c6c9957134b033a5e639e837
         name: Install pnpm
         with:
           version: 9
