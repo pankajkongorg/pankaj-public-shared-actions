@@ -86,7 +86,7 @@ jobs:
     
     # Login in to ECR registry to push retagged testing images
     - name: Log in to AWS ECR
-      uses: aws-actions/amazon-ecr-login@062b18b96a7aff071d4dc91bc00c4c1a7945b076 # v2.0.1
+      uses: aws-actions/amazon-ecr-login@7290e214a610b32bc0eef81748948b6d466a8783 # v2.2.0
       with:
         registries: ${{secrets.ECR_REGISTRY_ID}}
     
